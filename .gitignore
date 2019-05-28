@@ -1,0 +1,21 @@
+# Temporary Files
+/var/*
+
+!/var/cache
+/var/cache/*
+!var/cache/.gitkeep
+
+!/var/log
+/var/log/*
+!var/log/.gitkeep
+
+/.php_cs.cache
+
+/.phpunit.result.cache
+
+# Configuration
+/config/parameters.yaml
+
+# Third Party libraries
+/vendor/
+/composer.phar

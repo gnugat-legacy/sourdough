@@ -1,0 +1,18 @@
+#!/usr/bin/env php
+<?php
+
+set_time_limit(0);
+
+require_once __DIR__.'/../vendor/autoload.php';
+
+use Gnugat\MicroFrameworkBundle\Service\KernelApplication as Application;
+use Gnugat\Sourdough\App\GnugatSourdoughAppKernel;
+use Symfony\Component\Console\Input\ArgvInput;
+
+$input = new ArgvInput();
+$env = $input->getParameterOption(['--env', '-e'], 'prod');
+$debug = !$input->hasParameterOption(['--no-debug', '']) && $env !== 'prod';
+
+$kernel = new GnugatSourdoughAppKernel($env, $debug);
+$application = new Application($kernel);
+$application->run($input);
