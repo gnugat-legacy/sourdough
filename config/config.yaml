@@ -2,4 +2,4 @@ imports:
     - { resource: services/ }
 
 parameters:
-    router.resource: '%kernel.root_dir%/../config/routings/'
+    router.resource: '%kernel.project_dir%/../config/routings/'

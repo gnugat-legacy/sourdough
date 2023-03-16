@@ -7,7 +7,7 @@ use Symfony\Component\Config\Loader\LoaderInterface;
 
 class GnugatSourdoughAppKernel extends Kernel
 {
-    public function registerBundles()
+    public function registerBundles(): \Generator
     {
         $contents = require __DIR__.'/../../config/bundles.php';
         foreach ($contents as $class => $envs) {
@@ -17,27 +17,22 @@ class GnugatSourdoughAppKernel extends Kernel
         }
     }
 
-    public function getProjectDir()
+    public function getProjectDir(): string
     {
         return __DIR__;
     }
 
-    public function getCacheDir()
+    public function getCacheDir(): string
     {
         return __DIR__.'/../../var/cache/'.$this->environment;
     }
 
-    public function getLogDir()
+    public function getLogDir(): string
     {
         return __DIR__.'/../../var/log';
     }
 
-    public function getName()
-    {
-        return 'GnugatSourdoughApp';
-    }
-
-    public function registerContainerConfiguration(LoaderInterface $loader)
+    public function registerContainerConfiguration(LoaderInterface $loader): void
     {
         $configFilename = __DIR__.'/../../config/config.yaml';
         if ('test' === $this->environment) {

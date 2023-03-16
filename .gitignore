@@ -9,9 +9,10 @@
 /var/log/*
 !var/log/.gitkeep
 
-/.php_cs.cache
-
+/.php-cs-fixer.cache
+/.php-cs-fixer.php
 /.phpunit.result.cache
+/phpunit.xml
 
 # Configuration
 /config/parameters.yaml
